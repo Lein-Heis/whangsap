@@ -369,7 +369,6 @@ const {
 			 const isLevelingOn = isGroup ? _leveling.includes(from) : false
 			 const isGroupAdmins = groupAdmins.includes(sender) || false
 			 const isWelkom = isGroup ? welkom.includes(from) : false
-			 const isNsfw = isGroup ? nsfw.includes(from) : false
 			 const isSimi = isGroup ? samih.includes(from) : false
 			 const isOwner = ownerNumber.includes(sender)
 			 const isImage = type === 'imageMessage'
@@ -1468,7 +1467,6 @@ const {
 				 if (!isRegistered) return reply(ind.noregis())
 				 if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if (!isGroup) return reply(ind.groupo())
-					if (!isNsfw) return reply(ind.nsfwoff())
 					 anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=pokemon`, {method: 'get'})
 					 reply(ind.wait())
 					 var n = JSON.parse(JSON.stringify(anu));
@@ -1482,49 +1480,12 @@ const {
 				 if (!isRegistered) return reply(ind.noregis())
 				 if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if (!isGroup) return reply(ind.groupo())
-					if (!isNsfw) return reply(ind.nsfwoff())
 					 anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anjing`, {method: 'get'})
 					 reply(ind.wait())
 					 var n = JSON.parse(JSON.stringify(anu));
 					 var nimek =  n[Math.floor(Math.random() * n.length)];
 					 pok = await getBuffer(nimek)
 					 client.sendMessage(from, pok, image, { quoted: mek })
-					 await limitAdd(sender)
-					 break
-				 case 'blohhwjob':
-				   if (isBanned) return reply(ind.baned())
-				 if (!isRegistered) return reply(ind.noregis())
-				 if (isLimit(sender)) return reply(ind.limitend(pusname))
-					 ranp = getRandom('.gif')
-					 rano = getRandom('.webp')
-					 anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwblowjob?apikey=${TobzKey}`, {method: 'get'})
-					 if (anu.error) return reply(anu.error)
-					 exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
-						 fs.unlinkSync(ranp)
-						 if (err) return reply(ind.stikga())
-						 buffer = fs.readFileSync(rano)
-						 client.sendMessage(from, buffer, sticker, {quoted: mek})
-						 fs.unlinkSync(rano)
-					 })
-					 await limitAdd(sender)
-					 break
-					 case 'neko':
-				 if (!isRegistered) return reply(ind.noregis())
-				 if (isLimit(sender)) return reply(ind.limitend(pusname))
-						 res = await fetchJson(`https://tobz-api.herokuapp.com/api/nekonime?apikey=${TobzKey}`, {method: 'get'})
-						 buffer = await getBuffer(res.result)
-						 client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih nekonime mu >_<'})
-					 await limitAdd(sender)
-					 break
-				 case 'nekoninbme':
-				   if (isBanned) return reply(ind.baned())
-				 if (!isRegistered) return reply(ind.noregis())
-				 if (isLimit(sender)) return reply(ind.limitend(pusname))
-					 gatauda = body.slice(10)
-					 reply(ind.wait())
-					 anu = await fetchJson(`https://api.vhtear.com/randomnekonime&apikey=${VhtearKey}`, {method: 'get'})
-					 buffer = await getBuffer(anu.result.result)
-					 client.sendMessage(from, buffer, image, {quoted: mek})
 					 await limitAdd(sender)
 					 break
 				 case 'kpop':
@@ -1544,7 +1505,6 @@ const {
 				 if (!isRegistered) return reply(ind.noregis())
 				 if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if (!isGroup) return reply(ind.groupo())
-					if (!isNsfw) return reply(ind.nsfwoff())
 						 res = await fetchJson(`https://tobz-api.herokuapp.com/api/husbu?apikey=${TobzKey}`)
 						 buffer = await getBuffer(res.image)
 						 client.sendMessage(from, buffer, image, {quoted: mek, caption: '>_<'})
@@ -1558,17 +1518,6 @@ const {
 					 reply(ind.wait())
 					 anu = await fetchJson(`https://api.vhtear.com/randomloli&apikey=${VhtearKey}`, {method: 'get'})
 					 buffer = await getBuffer(anu.result.result)
-					 client.sendMessage(from, buffer, image, {quoted: mek})
-					 await limitAdd(sender)
-					 break					
-				 case 'randobhmhentong':
-				   if (isBanned) return reply(ind.baned())
-				 if (!isRegistered) return reply(ind.noregis())
-				 if (isLimit(sender)) return reply(ind.limitend(pusname))
-					 gatauda = body.slice(15)
-					 reply(ind.wait())
-					 anu = await fetchJson(`https://api.vhtear.com/randomhentai?apikey=${VhtearKey}`, {method: 'get'})
-					 buffer = await getBuffer(anu.result.url)
 					 client.sendMessage(from, buffer, image, {quoted: mek})
 					 await limitAdd(sender)
 					 break					
