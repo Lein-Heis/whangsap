@@ -18,7 +18,6 @@ Berikut adalah fitur yang ada pada bot ini!✨
 ┃│➸ *${prefix}block*
 ┃│➸ *${prefix}unblock*
 ┃│➸ *${prefix}clone*
-┃│➸ *${prefix}leave*
 ┃│➸ *${prefix}setppbot*
 ┃│➸ *${prefix}setreply*
 ┃│➸ *${prefix}setprefix*

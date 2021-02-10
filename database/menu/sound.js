@@ -1,5 +1,5 @@
-const other = (pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered) => {
-	return `🔰 -----[ *OTHER MENU* ]----- 🔰
+const sound = (pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered) => {
+	return `🔰 -----[ *SOUND MENU* ]----- 🔰
 Hallo, ${pushname} 👋
 Semoga harimu Menyenangkan User, ${sender.split("@")[0]}
 ┏━━━━━━━━━━━━━━━━━━━━┓
@@ -12,22 +12,18 @@ Semoga harimu Menyenangkan User, ${sender.split("@")[0]}
 Berikut adalah fitur yang ada pada bot ini!✨
 ┏━━━━━━━━━━━━━━━━━━━━┓
 ┃╭───────────────────
-┃│➸ *${prefix}brainly*
-┃│➸ *${prefix}pinterest*
-┃│➸ *${prefix}bitly*
-┃│➸ *${prefix}moddroid*
-┃│➸ *${prefix}happymod*
-┃│➸ *${prefix}resepmakanan*
-┃│➸ *${prefix}beritahoax*
-┃│➸ *${prefix}mutual*
-┃│➸ *${prefix}next*
-┃│➸ *${prefix}virtex*
-┃│➸ *${prefix}virtex2*
-┃│➸ *${prefix}timer*
-┃│➸ *${prefix}nulis1*
-┃│➸ *${prefix}nulis2*
+┃│➸ *${prefix}iri*
+┃│➸ *${prefix}pale*
+┃│➸ *${prefix}sound*
+┃│➸ *${prefix}sound1*
+┃│➸ *${prefix}sound2*
+┃│➸ *${prefix}sound3*
+┃│➸ *${prefix}sound4*
+┃│➸ *${prefix}sound5*
+┃│➸ *${prefix}sound6*
+┃│➸ *${prefix}sound7*
 ┃╰───────────────────
 ┗━━━━━━━━━━━━━━━━━━━━┛
 🔰 -----[ *POWERED BY ${ownerName}* ]----- 🔰`
 }
-exports.other = other
+exports.sound = sound

@@ -16,8 +16,8 @@ Berikut adalah fitur yang ada pada bot ini!✨
 ┃│➸ *${prefix}nekonime*
 ┃│➸ *${prefix}wibu*
 ┃│➸ *${prefix}loli*
+┃│➸ *${prefix}neko*
 ┃│➸ *${prefix}blowjob*
-┃│➸ *${prefix}shota*
 ┃│➸ *${prefix}husbu*
 ┃│➸ *${prefix}kpop*
 ┃│➸ *${prefix}anjing*
