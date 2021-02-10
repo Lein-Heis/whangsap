@@ -456,7 +456,7 @@ client.on('group-participants-update', async (anu) => {
              }
            }
            if (position === false) {
-           	const obj = { id: sender, limit: 0 }
+           	const obj = { id: sender, limit: 1 }
                 _limit.push(obj)
                 fs.writeFileSync('./database/user/limit.json',JSON.stringify(_limit))
            return false
