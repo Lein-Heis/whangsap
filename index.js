@@ -702,20 +702,6 @@ const {
 			 client.sendMessage(from, buffer, image, {quoted: mek})
 			 await limitAdd(sender)	
 			 break
- // PORNHUB
-				 case 'pornbsbsbhub':
-				 if (isBanned) return reply(ind.baned())
-				 if (!isRegistered) return reply(ind.noregis())
-				 if (isLimit(sender)) return reply(ind.limitend(pusname))
-				 var gh = body.slice(9)
-				 var porn = ghbshdjs.split("&")[0];
-				 var hub = gh.split("&")[1];
-				 if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}pornhub Ramlan & Hub`)
-				 reply(ind.wait())
-				 buffer = await getBuffer(`https://api.xteam.xyz/textpro/ph?text=${porn}&text2=${hub}&APIKEY=${XteamKey}`)
-				 client.sendMessage(from, buffer, image, {quoted: mek})
-				 await limitAdd(sender)
-				 break
  //GEMBOK TEXT
 				 case 'gemboktext':
 				 if (isBanned) return reply(ind.baned())
@@ -1193,7 +1179,7 @@ const {
 				 const userXp = getLevelingXp(sender)
 				 if (userLevel === undefined && userXp === undefined) return reply(ind.lvlnul())
 				 const requiredXp = 5000 * (Math.pow(2, userLevel) - 1)
-				 resul = `â”â”â”â”â”â”â”â™¡ *LEVEL* â™¡â”â”â”â”â”â”â”â”“\nâ”ƒâ•­â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\nâ”ƒâ”‚âž¸ NAMA : ${pushname}\nâ”ƒâ”‚âž¸ NOMOR : wa.me/${sender.split("@")[0]}\nâ”ƒâ”‚âž¸ XP : ${userXp}/${requiredXp}\nâ”ƒâ”‚âž¸ LEVEL : ${userLevel}\nâ”ƒâ•°â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\nâ”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›`
+				 resul = `┏━━━━━━♡ *LEVEL* ♡━━━━━━━┓\n┃╭───────────────────\n┃│➸ NAMA : ${pushname}\n┃│➸ NOMOR : wa.me/${sender.split("@")[0]}\n┃│➸ XP : ${userXp}/${requiredXp}\n┃│➸ LEVEL : ${userLevel}\n┃╰───────────────────\n┗━━━━━━━━━━━━━━━━━━━━┛`
 				client.sendMessage(from, resul, text, { quoted: mek})
 				 .catch(async (err) => {
 						 console.error(err)
@@ -1683,7 +1669,7 @@ const {
 				 case 'info':
 					 me = client.user
 					 uptime = process.uptime()
-					 teks = `*âž¸ Nama bot* : ${me.name}\n*âž¸ OWNER* : ð—¥ð—®ð—ºð—¹ð—®ð—» ð—œð——\n*âž¸ AUTHOR* : ${ownerName}\n*âž¸ Nomor Bot* : @${me.jid.split('@')[0]}\n*âž¸ Prefix* : ${prefix}\n*âž¸ Total Block Contact* : ${blocked.length}\n*âž¸ The bot is active on* : ${kyun(uptime)}`
+					 teks = `*➸ Nama bot* : ${me.name}\n*➸ OWNER* : *LEIN*\n*➸ AUTHOR* : LEIN\n*➸ Nomor Bot* : @${me.jid.split('@')[0]}\n*➸ Prefix* : ${prefix}\n*➸ Total Block Contact* : ${blocked.length}\n*➸ The bot is active on* : ${kyun(uptime)}`
 					 buffer = await getBuffer(me.imgUrl)
 					 client.sendMessage(from, buffer, image, {caption: teks, contextInfo:{mentionedJid: [me.jid]}})
 					 break
