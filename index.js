@@ -50,7 +50,7 @@ const {
  /*
  ]=====> SETTINGS <=====[
  */
- const ownerNumber = ["6287811186838@s.whatsapp.net","6285347248945@s.whatsapp.net"]
+ const ownerNumber = ["6287725759297@s.whatsapp.net","6285347248945@s.whatsapp.net"]
  const botName = '𝐋ein Gagal Gans Jr'
  const ownerName = 'Lein Ren'
  const BarBarKey = 'LEUJU9ybLwAHbLqnGShv'
