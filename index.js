@@ -710,7 +710,7 @@ const {
 					 var gh = body.slice(12)
 					 var gem = gh.split("&")[0];
 					 var bok = gh.split("&")[1];
-					 if (args.length < 1) return reply( Contoh : ${prefix}Baa`)
+					 if (args.length < 1) return reply(` Contoh : ${prefix}gemboktext Baaa`)
 					 reply(ind.wait())
 					 buffer = await getBuffer(`https://api.vhtear.com/padlock?text1=${gem}&text2=${bok}&apikey=${VhtearKey}`)
 					 client.sendMessage(from, buffer, image, {quoted: mek})
