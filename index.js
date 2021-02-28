@@ -44,19 +44,19 @@ const {
 			 + 'END:VCARD' 
  prefix = '.'
  blocked = []   
- limitawal = 999999
+ limitawal = 10
  memberlimit = 2
  cr = '*𝐋EI𝐍 𝐁𝐎𝐓𝐙 𝐕𝐄𝐑𝐈𝐅𝐈𝐄𝐃*'
  /*
  ]=====> SETTINGS <=====[
  */
- const ownerNumber = ["6287725759297@s.whatsapp.net","6285347248945@s.whatsapp.net"]
+ const ownerNumber = ["6287725759297@s.whatsapp.net","6285347248945@s.whatsapp.net","6287811186838@s.whatsapp.net"]
  const botName = '𝐋ein Gagal Gans Jr'
  const ownerName = 'Lein Ren'
  const BarBarKey = 'LEUJU9ybLwAHbLqnGShv'
  const VhtearKey = 'PUNYARAMLAN'
  const TobzKey = 'BotWeA'
- const XteamKey = 'RAMLANGANS' // APIKEY XTEAM BELI SENDIRI:V 
+ const XteamKey = 'https://api.xteam.xyz'
  
  /* Database */
  const db = require('./lein.js')
@@ -302,7 +302,7 @@ const {
 				 } catch {
 					 ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				 }
-				 teks = `[ *WELCOME IN GC ${mdata.subject}* ] \n___________________________\n@${num.split('@')[0]} Intro/Dikick!!! \nâž¸ Nama : \nâž¸ Umur : \nâž¸ Askot : \nâž¸ Gender : \nâž¸ Udah Punya Doi/Blm: \nâž¸ Pap Muka dumlu!!! \nâž¸ Instagram? \nð’ðšð¯ðž ðð¨ð¦ð¨ð« ð€ðƒðŒðˆð! \n *___________________________*\nJangan jadi kutu lomcat sayang!!`
+				 teks = `@user\nYooo Mamang\nPake Bot Jangan Spam dan Reply(Bisa Error)`
 				 let buff = await getBuffer(ppimg)
 				 client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			 } else if (anu.action == 'remove') {
@@ -312,7 +312,7 @@ const {
 				 } catch {
 					 ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				 }
-				 teks = `SELAMAT TINGGAL... @${num.split('@')[0]}ðŸ‘‹* \n_Jasamu akan saya kubur dalam dalam_`
+				 teks = `@user\nsemoga ga masuk lagi ya:)`
 				 let buff = await getBuffer(ppimg)
 				 client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			 }
@@ -634,9 +634,9 @@ const {
 				 if (isBanned) return reply(ind.baned())
 				 if (!isRegistered) return reply(ind.noregis())
 				 if (isLimit(sender)) return reply(ind.limitend(pusname))
-				 if (args.length < 1) return reply(`Teksnya mana kak? Contoh : ${prefix}nulis1 Ramlan baik hati`)
+				 if (args.length < 1) return reply(`Teksnya mana kak? Contoh : ${prefix}nulis1 kamu baik hati`)
 				 ramlan = body.slice(8)
-				 reply('ã€Œâ—ã€WAIT BRO GUE NULIS DUMLU YAKAN')
+				 reply('Sabarrr')
 				 buff = await getBuffer(`https://api.xteam.xyz/magernulis2?text=${ramlan}&APIKEY=${XteamKey}`)
 				 client.sendMessage(from, buff, image, {quoted: mek, caption: 'Lebih baik nulis sendiri ya kak :*'})
 				 await limitAdd(sender)
@@ -646,9 +646,9 @@ const {
 				 if (isBanned) return reply(ind.baned())
 				 if (!isRegistered) return reply(ind.noregis())
 				 if (isLimit(sender)) return reply(ind.limitend(pusname))
-				 if (args.length < 1) return reply(`Teksnya mana kak? Contoh : ${prefix}nulis2 Ramlan baik hati`)
+				 if (args.length < 1) return reply(`Teksnya mana kak? Contoh : ${prefix}nulis2 kamu baik hati`)
 				 laysha = body.slice(8)
-				 reply('ã€Œâ—ã€WAIT BRO GUE NULIS DUMLU YAKAN')
+				 reply('Sabarrr')
 				 buff = await getBuffer(`https://api.xteam.xyz/magernulis3?text=${laysha}&APIKEY=${XteamKey}`)
 				 client.sendMessage(from, buff, image, {quoted: mek, caption: 'Lebih baik nulis sendiri ya kak :*'})
 				 await limitAdd(sender)
@@ -660,7 +660,7 @@ const {
 				 if (!isRegistered) return reply(ind.noregis())
 				 if (isLimit(sender)) return reply(ind.limitend(pusname))
 					 teks = body.slice(7)
-					 reply('ã€Œâ—ã€WAIT BRO GUE NULIS DUMLU YAKAN')
+					 reply('Sabarrr')
 					 buff = await getBuffer(`https://api.vhtear.com/write?text=${teks}&apikey=${VhtearKey}`)
 					 client.sendMessage(from, buff, image, {quoted: mek})
 										 await limitAdd(sender)
@@ -672,7 +672,7 @@ const {
 				 quotes = body.slice(1)
 				 const quo =['Lebih baik mengerti sedikit daripada salah mengerti.','Hampir semua pria memang mampu bertahan menghadapi kesulitan. Namun, jika Anda ingin menguji karakter sejati pria, beri dia kekuasaan.','Bila tekad seseorang kuat dan teguh, Tuhan akan bergabung dalam usahanya.','Penderitaan adalah pelajaran.','Ilmu pengetahuan tanpa agama adalah pincang.','Hidup itu seperti sebuah sepeda, agar tetap seimbang kita harus tetap bergerak.','Perbedaan masa lalu, sekarang, dan masa depan tak lebih dari ilusi yang keras kepala.','Sebuah meja, sebuah kursi, semangkuk buah, dan sebuah biola; apa lagi yang dibutuhkan agar seseorang bisa merasa bahagia?','Belas kasihanlah terhadap sesama, bersikap keraslah terhadap diri sendiri.','Cara paling baik untuk menggerakkan diri Anda ialah memberi tugas kepada diri sendiri.','Kita tidak boleh kehilangan semangat. Semangat adalah stimulan terkuat untuk mencintai, berkreasi dan berkeinginan untuk hidup lebih lama.','Manusia akan bahagia selama ia memilih untuk bahagia.','Saya tidak berharap menjadi segalanya bagi setiap orang. Saya hanya ingin menjadi sesuatu untuk seseorang.','Apabila sempurna akal seseorang, maka sedikit perkataannya.','Bahagialah orang yang dapat menjadi tuan untuk dirinya, menjadi kusir untuk nafsunya dan menjadi kapten untuk bahtera hidupnya.','Sahabat yang jujur lebih besar harganya daripada harta benda yang diwarisi dari nenek moyang.','Yang paling melelahkan dalam hidup adalah menjadi orang yang tidak tulus.','Terbuka untuk Anda, begitulah Tuhan memberi kita jalan untuk berusaha. Jangan pernah berfikir jalan sudah tertutup.','Penundaan adalah kuburan dimana peluang dikuburkan.','Cinta bukan saling menatap mata, namun melihat ke arah yang sama bersama-sama.','Kita adalah apa yang kita kerjakan berulang kali. Dengan demikian, kecemerlangan bukan tindakan, tetapi kebiasaan.','Jangan pernah mencoba menjadikan putra atau putri Anda menjadi seperti Anda. Diri Anda hanya cukup satu saja.','Jika Anda bisa membuat orang lain tertawa, maka Anda akan mendapatkan semua cinta yang Anda inginkan.','Masalah akan datang cepat atau lambat. Jika masalah datang, sambut dengan sebaik mungkin. Semakin ramah Anda menyapanya, semakin cepat ia pergi.','Kita tak bisa melakukan apapun untuk mengubah masa lalu. Tapi apapun yang kita lakukan bisa mengubah masa depan.','Kesabaran adalah teman dari kebijaksanaan.','Orang-orang kreatif termotivasi oleh keinginan untuk maju, bukan oleh keinginan untuk mengalahkan orang lain.','Dimanapun engkau berada selalulah menjadi yang terbaik dan berikan yang terbaik dari yang bisa kita berikan.','Kebencian seperti halnya cinta, berkobar karena hal-hal kecil.','Anda tidak perlu harus berhasil pada kali pertama.','Satu jam yang intensif, jauh lebih baik dan menguntungkan daripada bertahun-tahun bermimpi dan merenung-renung.','Hal terbaik yang bisa Anda lakukan untuk orang lain bukanlah membagikan kekayaan Anda, tetapi membantu dia untuk memiliki kekayaannya sendiri.','Tidak ada jaminan keberhasilan, tetapi tidak berusaha adalah jaminan kegagalan.','Aku tidak tahu kunci sukses itu apa, tapi kunci menuju kegagalan adalah mencoba membuat semua orang senang.']
 				 const tes = quo[Math.floor(Math.random() * quo.length)]
-				 client.sendMessage(from, ''+tes+'\n\n_By : â¸¸Ramlanâ¸¸Panutanque._', text, { quoted: mek })
+				 client.sendMessage(from, ''+tes+'\n\n_By:Lein Koboy Jr.', text, { quoted: mek })
 				 await limitAdd(sender)
 				 break
  // NINJALOGO				
@@ -683,7 +683,7 @@ const {
 				 var gh = body.slice(11)
 				 var nin = gh.split("&")[0];
 				 var ja = gh.split("&")[1];
-				 if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}ninjalogo Ramlan & Gans`)
+				 if (args.length < 1) return reply(`Contoh : ${prefix}ninjalogo Baa`)
 				 reply(ind.wait())
 				 buffer = await getBuffer(`https://api.xteam.xyz/textpro/ninjalogo?text=${nin}&text2=${ja}&APIKEY=${XteamKey}`)
 				 client.sendMessage(from, buffer, image, {quoted: mek})
@@ -710,7 +710,7 @@ const {
 					 var gh = body.slice(12)
 					 var gem = gh.split("&")[0];
 					 var bok = gh.split("&")[1];
-					 if (args.length < 1) return reply(`[â—] Contoh : ${prefix}gemboktext 11 01 2021 & Ramlan dan Nadia`)
+					 if (args.length < 1) return reply( Contoh : ${prefix}Baa`)
 					 reply(ind.wait())
 					 buffer = await getBuffer(`https://api.vhtear.com/padlock?text1=${gem}&text2=${bok}&apikey=${VhtearKey}`)
 					 client.sendMessage(from, buffer, image, {quoted: mek})
@@ -723,7 +723,7 @@ const {
 					 var gh = body.slice(12)
 					 var gli = gh.split("&")[0];
 					 var tch = gh.split("&")[1];
-					 if (args.length < 1) return reply(`[â—] Contoh : ${prefix}glitchtext Ramlan & Gans`)
+					 if (args.length < 1) return reply(` Contoh : ${prefix}glitchtext Baaa`)
 					 reply(ind.wait())
 					 buffer = await getBuffer(`https://api.xteam.xyz/textpro/glitch?text=${gli}&text2=${tch}&APIKEY=${XteamKey}`)
 					 client.sendMessage(from, buffer, image, {quoted: mek})
@@ -804,7 +804,7 @@ const {
 				 var gh = body.slice(12)
 					 var quote = gh.split("&")[0];
 					 var wm = gh.split("&")[1];
-					 const pref = `yang mau dijadiin quote apaan, titit?\n\ncontoh : ${prefix}bikinquote aku bukan boneka & Kata Ramlan`
+					 const pref = `yang mau dijadiin quote apaan, titit?\n\ncontoh : ${prefix}bikinquote aku bukan boneka & Kata Koboy`
 					 if (args.length < 1) return reply(pref)
 					 reply(ind.wait())
 					 anu = await fetchJson(`https://terhambar.com/aw/qts/?kata=${quote}&author=${wm}&tipe=random`, {method: 'get'})
@@ -818,7 +818,7 @@ const {
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					  teks = body.slice(9)
 					  anu = await fetchJson(`https://api.vhtear.com/igprofile?query=${teks}&apikey=${VhtearKey}`, {method: 'get'})
-					  reply('ã€Œâ—ã€Sabar Lagi Stalking IG nya kak')
+					  reply('Sabar Lagi Stalking IG nya kak')
 					  buffer = await getBuffer(anu.result.picture)
 					  hasil = `YAHAHA TELAH DI STALK BOS KU UNTUK USERNAME ${teks} \n\n *Username?* : _${anu.result.username}_ \n *Nama??* : _${anu.result.full_name}_ \n *Jumlah Follower??ï¹¦?* : _${anu.result.follower}_ \n *Jumlah Following?* : _${anu.result.follow}_ \n *Jumlah Post?* : _${anu.result.post_count}_ \n *Biografi?? :* _${anu.result.biography}`
 					 client.sendMessage(from, buffer, image, {quoted: mek, caption: hasil})
@@ -868,7 +868,7 @@ const {
 				 if (!isRegistered) return reply(ind.noregis())
 				 if (isLimit(sender)) return reply(ind.limitend(pusname))
 					 bisakah = body.slice(1)
-					 const bisa =['Tentu Saja Bisa! Kamu Adalah Orang Paling Homky','Gak Bisa Ajg Aowkwowk','Hmm Gua Gak Tau Yaa, tanya ama bapakau','Ulangi Tod Gua Ga Paham']
+					 const bisa =['Tentu Saja Bisa! Kamu Adalah Orang Paling Homky','Gak Bisa Ajg Aowkwowk','Hmm Gua Gak Tau Yaa, tanya ama bapakau','Ulangi']
 					 const keh = bisa[Math.floor(Math.random() * bisa.length)]
 					 client.sendMessage(from, 'Pertanyaan : *'+bisakah+'*\n\nJawaban : '+ keh, text, { quoted: mek })
 					 await limitAdd(sender)
@@ -888,7 +888,7 @@ const {
 			if (!isRegistered) return reply(ind.noregis())
 			if (isLimit(sender)) return reply(ind.limitend(pusname))
 					 apakah = body.slice(1)
-					 const apa =['Iya','Tidak','Bisa Jadi','Ulangi bro gak paham']
+					 const apa =['Iya','Tidak','Bisa Jadi','Ulangi']
 					 const kah = apa[Math.floor(Math.random() * apa.length)]
 					 client.sendMessage(from, 'Pertanyaan : *'+apakah+'*\n\nJawaban : '+ kah, text, { quoted: mek })
 					 await limitAdd(sender)
@@ -1208,7 +1208,7 @@ const {
 					 teks = (args.length > 1) ? body.slice(8).trim() : ''
 					 teks += '\n\n'
 					 for (let mem of groupMembers) {
-						 teks += `âž¸ @${mem.jid.split('@')[0]}\n`
+						 teks += ` @${mem.jid.split('@')[0]}\n`
 						 members_id.push(mem.jid)
 					 }
 					 mentions(teks, members_id, true)
@@ -1239,7 +1239,7 @@ const {
 					 if (mentioned.length > 1) {
 						 teks = ''
 						 for (let _ of mentioned) {
-							 teks += `*jabatan kamu di copot*ðŸƒ :\n`
+							 teks += `*jabatan kamu di copot*ƒ :\n`
 							 teks += `@_.split('@')[0]`
 						 }
 						 mentions(teks, mentioned, true)
@@ -1259,13 +1259,13 @@ const {
 					 if (mentioned.length > 1) {
 						 teks = ''
 						 for (let _ of mentioned) {
-							 teks += `YeeeðŸ¥³ Kamu naik jabatan >_< :\n`
+							 teks += `³ Kamu naik jabatan >_< :\n`
 							 teks += `@_.split('@')[0]`
 						 }
 						 mentions(teks, mentioned, true)
 						 client.groupMakeAdmin(from, mentioned)
 					 } else {
-						 mentions(`SelamatðŸ¥³ @${mentioned[0].split('@')[0]} *anda naik menjadi admin group* >_<`, mentioned, true)
+						 mentions(`Selamat @${mentioned[0].split('@')[0]} *anda naik menjadi admin group* >_<`, mentioned, true)
 						 client.groupMakeAdmin(from, mentioned)
 					 }
 					 break
@@ -1371,7 +1371,7 @@ const {
 					 if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('URL NYA TIDAK VALID KAK')				
 		 anu = await fetchJson(`https://api.vhtear.com/ytdl?link=${args[0]}&apikey=${VhtearKey}`, {method: 'get'})
 					 if (anu.error) return reply(anu.error)
-					 teks = `*âž¸ JUDUL* : ${anu.result.title}\n\n*[WAIT] Proses Dumlu Yakan*`
+					 teks = `* JUDUL* : ${anu.result.title}\n\n*[WAIT] Proses Dumlu Yakan*`
 					 thumb = await getBuffer(anu.result.imgUrl)
 					 client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
 					 buffer = await getBuffer(anu.result.UrlVideo)
@@ -1397,7 +1397,7 @@ const {
 				 reply(ind.wait())
 				 anu = await fetchJson(`https://api.vhtear.com/ytmp3?query=${body.slice(6)}&apikey=${VhtearKey}`)
 				if (anu.error) return reply(anu.error)
-				  infomp3 = `*ã€Œâ—ã€Lagu Ditemukan*\nâž¸ Judul : ${anu.result.title}\nâž¸ Durasi : ${anu.result.duration}\nâž¸ Size : ${anu.result.size}\n\n*[WAIT] Proses Dumlu Yakan*`
+				  infomp3 = `*Lagu Ditemukan*\n¸ Judul : ${anu.result.title}\nâž¸ Durasi : ${anu.result.duration}\nâž¸ Size : ${anu.result.size}\n\n*[WAIT] Proses Dumlu Yakan*`
 				 buffer = await getBuffer(anu.result.image)
 				 lagu = await getBuffer(anu.result.mp3)
 				 client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
@@ -1442,7 +1442,7 @@ const {
 				 if ( checkATMuser(sender) >= total ) {
 					 await confirmATM(sender, total)
 					 await bayarLimit(sender, payout)
-					 await reply(`*âŸª PEMBAYARAN BERHASIL âŸ«*\n\nâž¸ pengirim : RAMLAN ID\nâž¸ penerima : ${pushname}\nâž¸ nominal pembelian : ${payout} \nâž¸ harga limit : ${koinPerlimit}/limit\nâž¸ sisa uang : ${checkATMuser(sender)}\n\nproses berhasil dengan SN\n${createSerial(15)}`)
+					 await reply(`* PEMBAYARAN BERHASIL «*\n\n¸ pengirim : Koboy\n¸ penerima : ${pushname}\n¸ nominal pembelian : ${payout} \n¸ harga limit : ${koinPerlimit}/limit\n¸ sisa uang : ${checkATMuser(sender)}\n\nproses berhasil dengan SN\n${createSerial(15)}`)
 				 } 
 				 break
  /*
@@ -1686,9 +1686,9 @@ const {
  if (isBanned) return reply(ind.baned())
  if (!isRegistered) return reply(ind.noregis())
  if (isLimit(sender)) return reply(ind.limitend(pusname))
- if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}hartatahta botwea`)
+ if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}hartatahta koboy`)
  har = body.slice(12)
- reply('ã€Œâ—ã€Hirti Tihti Tai Anjg :v')
+ reply('Harta Tahta KepalaKau')
  buffer = await getBuffer(`https://api.vhtear.com/hartatahta?text=${har}&apikey=${VhtearKey}`)
  client.sendMessage(from, buffer, image, {quoted: mek})
  await limitAdd(sender)
@@ -1697,9 +1697,9 @@ const {
  if (isBanned) return reply(ind.baned())
  if (!isRegistered) return reply(ind.noregis())
  if (isLimit(sender)) return reply(ind.limitend(pusname))
- if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}cloudtext Ramlan`)
+ if (args.length < 1) return reply(`Contoh : ${prefix}cloudtext Koboy`)
  cloud = body.slice(11)
- reply('ã€Œâ—ã€Bentar Bro terbang dulu yekan yahaha hayukk')
+ reply('Bentar Bro terbang dulu yekan yahaha hayukk')
  buffer = await getBuffer(`https://api.xteam.xyz/textpro/cloudtext?text=${cloud}&APIKEY=${XteamKey}`)
  client.sendMessage(from, buffer, image, {quoted: mek})
  await limitAdd(sender)
