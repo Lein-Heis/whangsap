@@ -488,32 +488,6 @@ const {
 				 console.error(err)
 			 }
 		 }
-// ANTI LINK GRUP
-
-                if (mesejAnti.includes("://chat.whatsapp.com/")){
-		        if (!isGroup) return
-		        if (!isAntiLink) return
-		        if (isGroupAdmins) return reply('Atasan grup mah bebas yakan:v')
-		        baby.updatePresence(from, Presence.composing)
-		        if (mesejAnti.includes("#izinbos")) return reply("Iya kak jangan spam ya")
-		        var kic = `${sender.split("@")[0]}@s.whatsapp.net`
-		        reply(`Woyy ${sender.split("@")[0]} Gak Boleh Share Link Group😡`)
-		        setTimeout( () => {
-			        baby.groupRemove(from, [kic]).catch((e)=>{reply(`BOT HARUS JADI ADMIN`)})
-		        }, 3000)
-		        setTimeout( () => {
-			        baby.updatePresence(from, Presence.composing)
-			        reply("Hedsot :v")
-		        }, 2000)
-		        setTimeout( () => {
-			        baby.updatePresence(from, Presence.composing)
-			        reply("Bismillah")
-		        }, 1000)
-		        setTimeout( () => {
-			        baby.updatePresence(from, Presence.composing)
-			        reply("Ready?")
-		        }, 0)
-	        }               
 			 colors = ['red','white','black','blue','yellow','green']
 			 const isMedia = (type === 'imageMessage' || type === 'videoMessage')
 			 const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
