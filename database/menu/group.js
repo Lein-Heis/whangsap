@@ -19,6 +19,7 @@ Jika tidak paham ketik *${prefix}bingungcok*
 ┃│➸ *${prefix}simih* ⟪ 1/0 ⟫
 ┃│➸ *${prefix}nsfw* ⟪ 1/0 ⟫
 ┃│➸ *${prefix}grup* ⟪ buka/tutup ⟫
+┃│➸ *${prefix}antilinkgrup* ⟪ 1/0 ⟫
 ┃│➸ *${prefix}add*
 ┃│➸ *${prefix}kick*
 ┃│➸ *${prefix}hedsot*
@@ -33,7 +34,6 @@ Jika tidak paham ketik *${prefix}bingungcok*
 ┃│➸ *${prefix}level*
 ┃│➸ *${prefix}fitnah*
 ┃│➸ *${prefix}hidetag*
-┃│➸ *${prefix}hidetag5*
 ┃╰───────────────────
 ┗━━━━━━━━━━━━━━━━━━━━┛
 🔰 -----[ *POWERED BY ${ownerName}* ]----- 🔰`

@@ -21,8 +21,6 @@ Berikut adalah fitur yang ada pada bot ini!✨
 ┃│➸ *${prefix}beritahoax*
 ┃│➸ *${prefix}mutual*
 ┃│➸ *${prefix}next*
-┃│➸ *${prefix}virtex*
-┃│➸ *${prefix}virtex2*
 ┃│➸ *${prefix}timer*
 ┃│➸ *${prefix}nulis1*
 ┃│➸ *${prefix}nulis2*
