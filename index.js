@@ -54,7 +54,7 @@ const {
  const botName = '𝐋ein Gagal Gans Jr'
  const ownerName = 'Lein Ren'
  const BarBarKey = 'LEUJU9ybLwAHbLqnGShv'
- const VhtearKey = 'PUNYARAMLAN'
+ const VhtearKey = 'BotWeA'
  const TobzKey = 'BotWeA'
  const XteamKey = 'https://api.xteam.xyz'
  
@@ -74,6 +74,7 @@ const {
  const uang = JSON.parse(await db.getDataUang())
  ban = JSON.parse(await db.getDataBanned())
  const sessionWa = await db.getDataSession()
+ const antilink = JSON.parse(fs.readFileSync('./database/group/antilink.json'))
  
  /*       
  ]=====> LOAD MENU <=====[
@@ -370,6 +371,7 @@ const {
 			 const isGroupAdmins = groupAdmins.includes(sender) || false
 			 const isWelkom = isGroup ? welkom.includes(from) : false
 			 const isSimi = isGroup ? samih.includes(from) : false
+			const isAntiLink = isGroup ? antilink.includes(from) : false
 			 const isOwner = ownerNumber.includes(sender)
 			 const isImage = type === 'imageMessage'
 			 const isUrl = (url) => {
@@ -486,6 +488,33 @@ const {
 				 console.error(err)
 			 }
 		 }
+// ANTI LINK GRUP
+
+                if (mesejAnti.includes("://chat.whatsapp.com/")){
+
+		        if (!isGroup) return
+		        if (!isAntiLink) return
+		        if (isGroupAdmins) return reply('Atasan grup mah bebas yakan:v')
+		        baby.updatePresence(from, Presence.composing)
+		        if (mesejAnti.includes("#izinbos")) return reply("Iya kak jangan spam ya")
+		        var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+		        reply(`Woyy ${sender.split("@")[0]} Gak Boleh Share Link Group😡`)
+		        setTimeout( () => {
+			        baby.groupRemove(from, [kic]).catch((e)=>{reply(`BOT HARUS JADI ADMIN`)})
+		        }, 3000)
+		        setTimeout( () => {
+			        baby.updatePresence(from, Presence.composing)
+			        reply("Hedsot :v")
+		        }, 2000)
+		        setTimeout( () => {
+			        baby.updatePresence(from, Presence.composing)
+			        reply("Bismillah")
+		        }, 1000)
+		        setTimeout( () => {
+			        baby.updatePresence(from, Presence.composing)
+			        reply("Ready?")
+		        }, 0)
+	        }               
 			 colors = ['red','white','black','blue','yellow','green']
 			 const isMedia = (type === 'imageMessage' || type === 'videoMessage')
 			 const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
@@ -661,7 +690,7 @@ const {
 				 if (isLimit(sender)) return reply(ind.limitend(pusname))
 					 teks = body.slice(7)
 					 reply('Sabarrr')
-					 buff = await getBuffer(`https://api.vhtear.com/write?text=${teks}&apikey=${VhtearKey}`)
+					 buff = await getBuffer(`https://api.vhtear.com/write?text=${teks}&apikey=BotWeA`)
 					 client.sendMessage(from, buff, image, {quoted: mek})
 										 await limitAdd(sender)
 					 break													
@@ -712,7 +741,7 @@ const {
 					 var bok = gh.split("&")[1];
 					 if (args.length < 1) return reply(` Contoh : ${prefix}gemboktext Baaa`)
 					 reply(ind.wait())
-					 buffer = await getBuffer(`https://api.vhtear.com/padlock?text1=${gem}&text2=${bok}&apikey=${VhtearKey}`)
+					 buffer = await getBuffer(`https://api.vhtear.com/padlock?text1=${gem}&text2=${bok}&apikey=BotWeA`)
 					 client.sendMessage(from, buffer, image, {quoted: mek})
 					 await limitAdd(sender)
 					 break
@@ -730,14 +759,15 @@ const {
 					 await limitAdd(sender)
 					 break
 				 case 'simi':
-				 if (isBanned) return reply(ind.baned())
-				 if (!isRegistered) return reply(ind.noregis())
-				 if (isLimit(sender)) return reply(ind.limitend(pusname))
-					 if (args.length < 1) return reply(`Textnya mana um? Contoh : ${prefix}simi hallo`)
-					 teks = body.slice(5)
-					 anu = await fetchJson(`http://vinz.zeks.xyz/api/sim?q=${teks}&apikey=apivinz`)
-					 reply(anu.result)
-					 break					
+				if (isBanned) return reply(nad.baned())
+				if (!isRegistered) return reply(nad.noregis())
+				if (isLimit(sender)) return reply(nad.limitend(pusname))
+					if (args.length < 1) return reply(`Mau nanya apa? Contoh : ${prefix}simi halo`)
+					teks = body.slice(5)
+					anu = await fetchJson(`https://vinz.zeks.xyz/api/sim?text=${teks}`)
+					reply(anu.result)
+					await limitAdd(sender)
+					break					
 				 case 'tts':
 				 if (isBanned) return reply(ind.baned())
 				 if (!isRegistered) return reply(ind.noregis())
@@ -817,7 +847,7 @@ const {
 					if (!isRegistered) return reply(ind.noregis())
 					if (isLimit(sender)) return reply(ind.limitend(pusname))
 					  teks = body.slice(9)
-					  anu = await fetchJson(`https://api.vhtear.com/igprofile?query=${teks}&apikey=${VhtearKey}`, {method: 'get'})
+					  anu = await fetchJson(`https://api.vhtear.com/igprofile?query=${teks}&apikey=BotWeA`, {method: 'get'})
 					  reply('Sabar Lagi Stalking IG nya kak')
 					  buffer = await getBuffer(anu.result.picture)
 					  hasil = `YAHAHA TELAH DI STALK BOS KU UNTUK USERNAME ${teks} \n\n *Username?* : _${anu.result.username}_ \n *Nama??* : _${anu.result.full_name}_ \n *Jumlah Follower??ï¹¦?* : _${anu.result.follower}_ \n *Jumlah Following?* : _${anu.result.follow}_ \n *Jumlah Post?* : _${anu.result.post_count}_ \n *Biografi?? :* _${anu.result.biography}`
@@ -856,7 +886,7 @@ const {
 				 silk = body.slice(10)
 				 if (silk.length > 7) return reply('Teksnya kepanjangan, maksimal 6 karakter')
 				 reply(ind.wait())
-				 buffer = await getBuffer(`https://api.vhtear.com/silktext?text=${silk}&apikey=${VhtearKey}`)
+				 buffer = await getBuffer(`https://api.vhtear.com/silktext?text=${silk}&apikey=BotWeA`)
 			 client.sendMessage(from, buffer, image, {quoted: mek})
 			 await limitAdd(sender)	
 			 break								
@@ -1082,6 +1112,31 @@ const {
 					 }
 					 break
 					 
+                                case 'antilinkgrup':
+
+                  if (isBanned) return reply(nad.baned())				
+
+					if (!isGroup) return reply(nad.groupo())
+					if (!isGroupAdmins) return reply(nad.admin())
+					if (!isBotGroupAdmins) return reply(nad.badmin())					
+					if (args.length < 1) return reply('ketik 1 untuk mengaktifkan')
+					if (Number(args[0]) === 1) {
+						if (isAntiLink) return reply('EMANG MATI?')
+						antilink.push(from)
+						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
+						reply('「 SUKSES 」MENGAKTIFKAN ANTI LINK DI GROUP')
+						baby.sendMessage(from,`ALLERT!!! Jika bukan admin jangan kirim link grup`, text)
+					} else if (Number(args[0]) === 0) {
+						if (!isAntiLink) return reply('EMANG AKTIF?')
+						var ini = anti.botLangsexOf(from)
+						antilink.splice(ini, 1)
+						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
+						reply('「 SUKSES 」MEMATIKAN ANTI LINK DI GROUP')
+					} else {
+						reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
+					}
+					break					
+					
 				 case 'admin':
 				   if (isBanned) return reply(ind.baned())
 				 if (!isRegistered) return reply(ind.noregis())
@@ -1369,7 +1424,7 @@ const {
 				 if (!isRegistered) return reply(ind.noregis())
 				 if (isLimit(sender)) return reply(ind.limitend(pusname))
 					 if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('URL NYA TIDAK VALID KAK')				
-		 anu = await fetchJson(`https://api.vhtear.com/ytdl?link=${args[0]}&apikey=${VhtearKey}`, {method: 'get'})
+		 anu = await fetchJson(`https://api.vhtear.com/ytdl?link=${args[0]}&apikey=BotWeA`, {method: 'get'})
 					 if (anu.error) return reply(anu.error)
 					 teks = `* JUDUL* : ${anu.result.title}\n\n*[WAIT] Proses Dumlu Yakan*`
 					 thumb = await getBuffer(anu.result.imgUrl)
@@ -1384,7 +1439,7 @@ const {
 				 if (!isRegistered) return reply(ind.noregis())
 				 if (isLimit(sender)) return reply(ind.limitend(pusname))
 					 if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('URL NYA TIDAK VALID KAK')
-					 anu = await fetchJson(`https://api.vhtear.com/tiktokdl?link=${args[0]}&apikey=${VhtearKey}`,)
+					 anu = await fetchJson(`https://api.vhtear.com/tiktokdl?link=${args[0]}&apikey=BotWeA`,)
 					 reply('[WAIT] Proses Dumlu Yakan')
 					 buffer = await getBuffer(anu.result.video)
 					 client.sendMessage(from, buffer, video, {mimetype: 'video/mp4', quoted: mek})
@@ -1395,7 +1450,7 @@ const {
 				 if (!isRegistered) return reply(ind.noregis())
 				 if (isLimit(sender)) return reply(ind.limitend(pusname)) 
 				 reply(ind.wait())
-				 anu = await fetchJson(`https://api.vhtear.com/ytmp3?query=${body.slice(6)}&apikey=${VhtearKey}`)
+				 anu = await fetchJson(`https://api.vhtear.com/ytmp3?query=${body.slice(6)}&apikey=BotWeA`)
 				if (anu.error) return reply(anu.error)
 				  infomp3 = `*Lagu Ditemukan*\n¸ Judul : ${anu.result.title}\nâž¸ Durasi : ${anu.result.duration}\nâž¸ Size : ${anu.result.size}\n\n*[WAIT] Proses Dumlu Yakan*`
 				 buffer = await getBuffer(anu.result.image)
@@ -1491,7 +1546,7 @@ const {
 				 if (!isRegistered) return reply(ind.noregis())
 				 if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if (!isGroup) return reply(ind.groupo())
-						 res = await fetchJson(`https://tobz-api.herokuapp.com/api/husbu?apikey=${TobzKey}`)
+						 res = await fetchJson(`https://tobz-api.herokuapp.com/api/husbu?apikey=BotWeA`)
 						 buffer = await getBuffer(res.image)
 						 client.sendMessage(from, buffer, image, {quoted: mek, caption: '>_<'})
 					 await limitAdd(sender)
@@ -1502,20 +1557,20 @@ const {
 				 if (isLimit(sender)) return reply(ind.limitend(pusname))
 					 gatauda = body.slice(6)
 					 reply(ind.wait())
-					 anu = await fetchJson(`https://api.vhtear.com/randomloli&apikey=${VhtearKey}`, {method: 'get'})
+					 anu = await fetchJson(`https://api.vhtear.com/randomloli&apikey=BotWeA`, {method: 'get'})
 					 buffer = await getBuffer(anu.result.result)
 					 client.sendMessage(from, buffer, image, {quoted: mek})
 					 await limitAdd(sender)
 					 break					
-					 case 'wibu':
-				   if (isBanned) return reply(ind.baned())
-				 if (!isRegistered) return reply(ind.noregis())
-				 if (isLimit(sender)) return reply(ind.limitend(pusname))
-						 data = await fetchJson(`https://api.vhtear.com/randomwibu&apikey=${VhtearKey}`)
-						 buffer = await getBuffer(data.result.foto)
-						 client.sendMessage(from, buffer, image, {quoted: mek, caption: '>_<'})
-					 await limitAdd(sender)
-					 break
+				case 'wibu':
+                if (isBanned) return reply(nad.baned())
+				if (!isRegistered) return reply(nad.noregis())
+				if (isLimit(sender)) return reply(nad.limitend(pusname))
+				data = await fetchJson(`https://st4rz.herokuapp.com/api/waifu`)
+				buffer = await getBuffer(data.image)
+				baby.sendMessage(from, buffer, image, {quoted: mek, caption: 'VVibu AbiZzz :v'})
+				await limitAdd(sender)
+				break
 				 case 'darkjokes':
 				   if (isBanned) return reply(ind.baned())
 				 if (!isRegistered) return reply(ind.noregis())
@@ -1689,7 +1744,7 @@ const {
  if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}hartatahta koboy`)
  har = body.slice(12)
  reply('Harta Tahta KepalaKau')
- buffer = await getBuffer(`https://api.vhtear.com/hartatahta?text=${har}&apikey=${VhtearKey}`)
+ buffer = await getBuffer(`https://api.vhtear.com/hartatahta?text=${har}&apikey=BotWeA`)
  client.sendMessage(from, buffer, image, {quoted: mek})
  await limitAdd(sender)
  break
