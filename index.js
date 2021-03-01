@@ -491,7 +491,6 @@ const {
 // ANTI LINK GRUP
 
                 if (mesejAnti.includes("://chat.whatsapp.com/")){
-
 		        if (!isGroup) return
 		        if (!isAntiLink) return
 		        if (isGroupAdmins) return reply('Atasan grup mah bebas yakan:v')
