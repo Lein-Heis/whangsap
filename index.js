@@ -44,8 +44,8 @@ const {
 			 + 'END:VCARD' 
  prefix = '.'
  blocked = []   
- limitawal = 10
- memberlimit = 2
+ limitawal = 20
+ memberlimit = 15
  cr = '*𝐋EI𝐍 𝐁𝐎𝐓𝐙 𝐕𝐄𝐑𝐈𝐅𝐈𝐄𝐃*'
  /*
  ]=====> SETTINGS <=====[
@@ -56,7 +56,7 @@ const {
  const BarBarKey = 'LEUJU9ybLwAHbLqnGShv'
  const VhtearKey = 'BotWeA'
  const TobzKey = 'BotWeA'
- const XteamKey = 'https://api.xteam.xyz'
+ const XteamKey = 'test'
  
  /* Database */
  const db = require('./lein.js')
