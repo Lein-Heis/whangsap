@@ -164,6 +164,16 @@ const getDataAfk = async () => new Promise((resolve, reject) => {
     })
 })
 
+const getDataSession = async () => new Promise((resolve, reject) => {
+    db.any(`SELECT session FROM public.leinbot WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(data[0].afk)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
 // update data
 const updateDataLeveling = async (databaru) => new Promise((resolve, reject) => {
     db.any(`UPDATE public.leinbot SET leveling = '${databaru}' WHERE id_data = 1;`)
@@ -266,7 +276,7 @@ const updateDataBanned = async (databaru) => new Promise((resolve, reject) => {
 })
 
 const updateDataPrem = async (databaru) => new Promise((resolve, reject) => {
-    db.any(`UPDATE public.leinbot SET Prem = '${databaru}' WHERE id_data = 1;`)
+    db.any(`UPDATE public.leinbot SET prem = '${databaru}' WHERE id_data = 1;`)
     .then((data) => {
         resolve(true)
     })
@@ -276,7 +286,7 @@ const updateDataPrem = async (databaru) => new Promise((resolve, reject) => {
 })
 
 const updateDataWakil = async (databaru) => new Promise((resolve, reject) => {
-    db.any(`UPDATE public.leinbot SET Wakil = '${databaru}' WHERE id_data = 1;`)
+    db.any(`UPDATE public.leinbot SET wakil = '${databaru}' WHERE id_data = 1;`)
     .then((data) => {
         resolve(true)
     })
@@ -286,7 +296,7 @@ const updateDataWakil = async (databaru) => new Promise((resolve, reject) => {
 })
 
 const updateDataBad = async (databaru) => new Promise((resolve, reject) => {
-    db.any(`UPDATE public.leinbot SET Bad = '${databaru}' WHERE id_data = 1;`)
+    db.any(`UPDATE public.leinbot SET bad = '${databaru}' WHERE id_data = 1;`)
     .then((data) => {
         resolve(true)
     })
@@ -296,7 +306,7 @@ const updateDataBad = async (databaru) => new Promise((resolve, reject) => {
 })
 
 const updateDataBadword = async (databaru) => new Promise((resolve, reject) => {
-    db.any(`UPDATE public.leinbot SET Badword = '${databaru}' WHERE id_data = 1;`)
+    db.any(`UPDATE public.leinbot SET badword = '${databaru}' WHERE id_data = 1;`)
     .then((data) => {
         resolve(true)
     })
@@ -306,7 +316,17 @@ const updateDataBadword = async (databaru) => new Promise((resolve, reject) => {
 })
 
 const updateDataAfk = async (databaru) => new Promise((resolve, reject) => {
-    db.any(`UPDATE public.leinbot SET afl = '${databaru}' WHERE id_data = 1;`)
+    db.any(`UPDATE public.leinbot SET afk = '${databaru}' WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(true)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
+const updateDataSession = async (databaru) => new Promise((resolve, reject) => {
+    db.any(`UPDATE public.leinbot SET session = '${databaru}' WHERE id_data = 1;`)
     .then((data) => {
         resolve(true)
     })
@@ -331,6 +351,7 @@ module.exports = {
     getDataBad,
     getDataBadword,
     getDataAfk,
+    getDataSession,
     updateDataLeveling,
     updateDataAntilink,
     updateDataLevels,
@@ -346,4 +367,5 @@ module.exports = {
     updateDataBad,
     updateDataBadword,
     updateDataAfk,
+    updateDataSession,
 }
