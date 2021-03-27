@@ -7,7 +7,7 @@ const initOptions = {
 const pgp = require('pg-promise')(initOptions)
 
 const db = pgp({
-    connectionString: 'postgres://ryabtygryxmkui:f4122b649607d861d0368774941074b888f91bc2ab07cc1cefa012cd49bf7d7b@ec2-3-214-3-162.compute-1.amazonaws.com:5432/d81suo34iivrei',
+    connectionString: 'postgres://egzrnwahlvugzv:adb67adcc11ca1171f87ae431e14babd6d482818046463eade7db428c8ea1fa6@ec2-54-205-183-19.compute-1.amazonaws.com:5432/dftnnqufqaurui',
     ssl: {
       rejectUnauthorized: false
     }
@@ -18,6 +18,16 @@ const getDataLeveling = async () => new Promise((resolve, reject) => {
     db.any(`SELECT leveling FROM public.leinbot WHERE id_data = 1;`)
     .then((data) => {
         resolve(data[0].leveling)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
+const getDataAntilink = async () => new Promise((resolve, reject) => {
+    db.any(`SELECT antilink FROM public.leinbot WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(data[0].antilink)
     })
     .catch((error) => {
         reject(error)
@@ -48,6 +58,16 @@ const getDataWelkom = async () => new Promise((resolve, reject) => {
     db.any(`SELECT welkom FROM public.leinbot WHERE id_data = 1;`)
     .then((data) => {
         resolve(data[0].welkom)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
+const getDataNsfw = async () => new Promise((resolve, reject) => {
+    db.any(`SELECT nsfw FROM public.leinbot WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(data[0].nsfw)
     })
     .catch((error) => {
         reject(error)
@@ -104,6 +124,56 @@ const getDataBanned = async () => new Promise((resolve, reject) => {
     })
 })
 
+const getDataPrem = async () => new Promise((resolve, reject) => {
+    db.any(`SELECT prem FROM public.leinbot WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(data[0].prem)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
+const getDataWakil = async () => new Promise((resolve, reject) => {
+    db.any(`SELECT wakil FROM public.leinbot WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(data[0].wakil)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
+const getDataBad = async () => new Promise((resolve, reject) => {
+    db.any(`SELECT bad FROM public.leinbot WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(data[0].bad)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
+const getDataBadword = async () => new Promise((resolve, reject) => {
+    db.any(`SELECT badword FROM public.leinbot WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(data[0].badword)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
+const getDataAfk = async () => new Promise((resolve, reject) => {
+    db.any(`SELECT afk FROM public.leinbot WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(data[0].afk)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
 const getDataSession = async () => new Promise((resolve, reject) => {
     db.any(`SELECT sessions FROM public.leinbot WHERE id_data = 1;`)
     .then((data) => {
@@ -117,6 +187,16 @@ const getDataSession = async () => new Promise((resolve, reject) => {
 // update data
 const updateDataLeveling = async (databaru) => new Promise((resolve, reject) => {
     db.any(`UPDATE public.leinbot SET leveling = '${databaru}' WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(true)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
+const updateDataAntilink = async (databaru) => new Promise((resolve, reject) => {
+    db.any(`UPDATE public.leinbot SET antilink = '${databaru}' WHERE id_data = 1;`)
     .then((data) => {
         resolve(true)
     })
@@ -147,6 +227,16 @@ const updateDataRegistered = async (databaru) => new Promise((resolve, reject) =
 
 const updateDataWelkom = async (databaru) => new Promise((resolve, reject) => {
     db.any(`UPDATE public.leinbot SET welkom = '${databaru}' WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(true)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
+const updateDataNsfw = async (databaru) => new Promise((resolve, reject) => {
+    db.any(`UPDATE public.leinbot SET Nsfw = '${databaru}' WHERE id_data = 1;`)
     .then((data) => {
         resolve(true)
     })
@@ -205,6 +295,56 @@ const updateDataBanned = async (databaru) => new Promise((resolve, reject) => {
     })
 })
 
+const updateDataPrem = async (databaru) => new Promise((resolve, reject) => {
+    db.any(`UPDATE public.leinbot SET Prem = '${databaru}' WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(true)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
+const updateDataWakil = async (databaru) => new Promise((resolve, reject) => {
+    db.any(`UPDATE public.leinbot SET Wakil = '${databaru}' WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(true)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
+const updateDataBad = async (databaru) => new Promise((resolve, reject) => {
+    db.any(`UPDATE public.leinbot SET Bad = '${databaru}' WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(true)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
+const updateDataBadword = async (databaru) => new Promise((resolve, reject) => {
+    db.any(`UPDATE public.leinbot SET Badword = '${databaru}' WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(true)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
+const updateDataAfk = async (databaru) => new Promise((resolve, reject) => {
+    db.any(`UPDATE public.leinbot SET afl = '${databaru}' WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(true)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
 const updateDataSession = async (databaru) => new Promise((resolve, reject) => {
     db.any(`UPDATE public.leinbot SET sessions = '${databaru}' WHERE id_data = 1;`)
     .then((data) => {
@@ -217,23 +357,37 @@ const updateDataSession = async (databaru) => new Promise((resolve, reject) => {
 
 module.exports = {
     getDataLeveling,
+    getDataAntilink,
     getDataLevels,
     getDataRegistered,
     getDataWelkom,
+    getDataNsfw,
     getDataSamih,
     getDataEvent,
     getDataLimits,
     getDataUang,
     getDataBanned,
+    getDataPrem,
+    getDataWakil,
+    getDataBad,
+    getDataBadword,
+    getDataAfk,
     getDataSession,
     updateDataLeveling,
+    updateDataAntilink,
     updateDataLevels,
     updateDataRegistered,
     updateDataWelkom,
+    updateDataNsfw,
     updateDataSamih,
     updateDataEvent,
     updateDataLimits,
     updateDataUang,
     updateDataBanned,
+    updateDataPrem,
+    updateDataWakil,
+    updateDataBad,
+    updateDataBadword,
+    updateDataAfk,
     updateDataSession
 }
