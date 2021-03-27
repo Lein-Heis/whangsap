@@ -92,6 +92,7 @@ const wakil = JSON.parse(await db.getDataWakil())
 const bad = JSON.parse(await db.getDataBad())
 const badword = JSON.parse(await db.getDataBadword())
 const _afk = JSON.parse(await db.getDataAfk())
+const sessionWa = await db.getDataSession(
 const nsfw = JSON.parse(fs.readFileSync('./database/group/nsfw.json'))
 
 /********** FUNCTION ***************/
@@ -131,7 +132,7 @@ const getLevelingXp = (sender) => {
             }
         }
 
-        const addLevelingXp = (sender, amount) => {
+        const addLevelingXp = async (sender, amount) => {
             let position = false
             Object.keys(_level).forEach((i) => {
                 if (_level[i].id === sender) {
@@ -144,7 +145,7 @@ const getLevelingXp = (sender) => {
             }
         }
 
-        const addLevelingLevel = (sender, amount) => {
+        const addLevelingLevel = async (sender, amount) => {
             let position = false
             Object.keys(_level).forEach((i) => {
                 if (_level[i].id === sender) {
@@ -157,7 +158,7 @@ const getLevelingXp = (sender) => {
             }
         }
 
-        const addLevelingId = (sender) => {
+        const addLevelingId = async (sender) => {
             const obj = {id: sender, xp: 1, level: 1}
             _level.push(obj)
             await db.updateDataLevels(JSON.stringify(_level))
@@ -167,7 +168,7 @@ const getLevelingXp = (sender) => {
             return _registered[Math.floor(Math.random() * _registered.length)].id
         }
 
-        const addRegisteredUser = (userid, sender, age, time, serials) => {
+        const addRegisteredUser =async (userid, sender, age, time, serials) => {
             const obj = { id: userid, name: sender, age: age, time: time, serial: serials }
             _registered.push(obj)
             await db.updateDataRegistered(JSON.stringify(_registered))
@@ -187,13 +188,13 @@ const getLevelingXp = (sender) => {
             return status
         }
         
-        const addATM = (sender) => {
+        const addATM = async (sender) => {
         	const obj = {id: sender, uang : 0}
             uang.push(obj)
             await db.updateDataUang(JSON.stringify(uang))
         }
         
-        const addKoinUser = (sender, amount) => {
+        const addKoinUser = async (sender, amount) => {
             let position = false
             Object.keys(uang).forEach((i) => {
                 if (uang[i].id === sender) {
@@ -218,7 +219,7 @@ const getLevelingXp = (sender) => {
             }
         }
         
-        const bayarLimit = (sender, amount) => {
+        const bayarLimit = async (sender, amount) => {
         	let position = false
             Object.keys(_limit).forEach((i) => {
                 if (_limit[i].id === sender) {
@@ -231,7 +232,7 @@ const getLevelingXp = (sender) => {
             }
         }
         	
-        const confirmATM = (sender, amount) => {
+        const confirmATM = async (sender, amount) => {
         	let position = false
             Object.keys(uang).forEach((i) => {
                 if (uang[i].id === sender) {
@@ -244,7 +245,7 @@ const getLevelingXp = (sender) => {
             }
         }
         
-         const limitAdd = (sender) => {
+         const limitAdd = async(sender) => {
              let position = false
             Object.keys(_limit).forEach((i) => {
                 if (_limit[i].id == sender) {
