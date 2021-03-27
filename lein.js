@@ -64,16 +64,6 @@ const getDataWelkom = async () => new Promise((resolve, reject) => {
     })
 })
 
-const getDataNsfw = async () => new Promise((resolve, reject) => {
-    db.any(`SELECT nsfw FROM public.leinbot WHERE id_data = 1;`)
-    .then((data) => {
-        resolve(data[0].nsfw)
-    })
-    .catch((error) => {
-        reject(error)
-    })
-})
-
 const getDataSamih = async () => new Promise((resolve, reject) => {
     db.any(`SELECT samih FROM public.leinbot WHERE id_data = 1;`)
     .then((data) => {
@@ -174,16 +164,6 @@ const getDataAfk = async () => new Promise((resolve, reject) => {
     })
 })
 
-const getDataSession = async () => new Promise((resolve, reject) => {
-    db.any(`SELECT sessions FROM public.leinbot WHERE id_data = 1;`)
-    .then((data) => {
-        resolve(data[0].sessions)
-    })
-    .catch((error) => {
-        reject(error)
-    })
-})
-
 // update data
 const updateDataLeveling = async (databaru) => new Promise((resolve, reject) => {
     db.any(`UPDATE public.leinbot SET leveling = '${databaru}' WHERE id_data = 1;`)
@@ -227,16 +207,6 @@ const updateDataRegistered = async (databaru) => new Promise((resolve, reject) =
 
 const updateDataWelkom = async (databaru) => new Promise((resolve, reject) => {
     db.any(`UPDATE public.leinbot SET welkom = '${databaru}' WHERE id_data = 1;`)
-    .then((data) => {
-        resolve(true)
-    })
-    .catch((error) => {
-        reject(error)
-    })
-})
-
-const updateDataNsfw = async (databaru) => new Promise((resolve, reject) => {
-    db.any(`UPDATE public.leinbot SET Nsfw = '${databaru}' WHERE id_data = 1;`)
     .then((data) => {
         resolve(true)
     })
@@ -345,23 +315,12 @@ const updateDataAfk = async (databaru) => new Promise((resolve, reject) => {
     })
 })
 
-const updateDataSession = async (databaru) => new Promise((resolve, reject) => {
-    db.any(`UPDATE public.leinbot SET sessions = '${databaru}' WHERE id_data = 1;`)
-    .then((data) => {
-        resolve(true)
-    })
-    .catch((error) => {
-        reject(error)
-    })
-})
-
 module.exports = {
     getDataLeveling,
     getDataAntilink,
     getDataLevels,
     getDataRegistered,
     getDataWelkom,
-    getDataNsfw,
     getDataSamih,
     getDataEvent,
     getDataLimits,
@@ -372,13 +331,11 @@ module.exports = {
     getDataBad,
     getDataBadword,
     getDataAfk,
-    getDataSession,
     updateDataLeveling,
     updateDataAntilink,
     updateDataLevels,
     updateDataRegistered,
     updateDataWelkom,
-    updateDataNsfw,
     updateDataSamih,
     updateDataEvent,
     updateDataLimits,
@@ -389,5 +346,4 @@ module.exports = {
     updateDataBad,
     updateDataBadword,
     updateDataAfk,
-    updateDataSession
 }
