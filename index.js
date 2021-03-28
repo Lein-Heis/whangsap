@@ -95,29 +95,28 @@ const _afk = JSON.parse(await db.getDataAfk())
 const sessionWa = await db.getDataSession(
 
 /********** FUNCTION ***************/
-const getLevelingXp = (sender) => {
-            let position = false
-            Object.keys(_level).forEach((i) => {
-                if (_level[i].id === sender) {
-                    position = i
-                }
-            })
-            if (position !== false) {
-                return _level[position].xp
-            }
-        }
-
-        const getLevelingLevel = (sender) => {
-            let position = false
-            Object.keys(_level).forEach((i) => {
-                if (_level[i].id === sender) {
-                    position = i
-                }
-            })
-            if (position !== false) {
-                return _level[position].level
-            }
-        }
+ const getLevelingXp = (sender) => {
+			 let position = false
+			 Object.keys(_level).forEach((i) => {
+				 if (_level[i].id === sender) {
+					 position = i
+				 }
+			 })
+			 if (position !== false) {
+				 return _level[position].xp
+			 }
+		 }
+ 
+		 const getLevelingLevel = (sender) => {
+			 let position = false
+			 Object.keys(_level).forEach((i) => {
+				 if (_level[i].id === sender) {
+					 position = i
+				 }
+			 })
+			 if (position !== false) {
+				 return _level[position].level
+			 }
 
         const getLevelingId = (sender) => {
             let position = false
