@@ -93,7 +93,6 @@ const bad = JSON.parse(await db.getDataBad())
 const badword = JSON.parse(await db.getDataBadword())
 const _afk = JSON.parse(await db.getDataAfk())
 const sessionWa = await db.getDataSession(
-const nsfw = JSON.parse(await db.getDataNsfw())
 
 /********** FUNCTION ***************/
 const getLevelingXp = (sender) => {
@@ -4714,14 +4713,19 @@ client.on('group-participants-update', async (anu) => {
                   }
 
 			if (isGroup && !isCmd && isSimi && budy != undefined) {
-						console.log(budy)
-						muehe = await simih(budy)
-						reply(ind.cmdnf(prefix, command))
-					} else {
-						console.log(color('[ERROR]','red'), 'Unregistered Command from', color(sender.split('@')[0]))
-					}
-				}
-		} catch (e) {
-			console.log('Error : %s', color(e, 'red'))
-		}
-	})
+
+						 console.log(budy)
+
+						 muehe = await simih(budy)
+				 //		reply(ind.cmdnf(prefix, command))
+					 } else {
+						 console.log(color('[ERROR]','red'), 'Unregistered Command from', color(sender.split('@')[0]))
+					 }
+					 }
+		 } catch (e) {
+			 console.log('Error : %s', color(e, 'red'))
+		 }
+	 })
+}
+
+starts()
