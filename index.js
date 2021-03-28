@@ -93,7 +93,7 @@ const bad = JSON.parse(await db.getDataBad())
 const badword = JSON.parse(await db.getDataBadword())
 const _afk = JSON.parse(await db.getDataAfk())
 const sessionWa = await db.getDataSession(
-const nsfw = JSON.parse(fs.readFileSync('./database/group/nsfw.json'))
+const nsfw = JSON.parse(await db.getDataNsfw())
 
 /********** FUNCTION ***************/
 const getLevelingXp = (sender) => {
@@ -4553,11 +4553,11 @@ client.on('group-participants-update', async (anu) => {
 					if (Number(args[0]) === 1) {
 						if (isNsfw) return reply('*Fitur nsfw sudah aktif sebelum nya*')
 						nsfw.push(from)
-						fs.writeFileSync('./nsfw.json', JSON.stringify(nsfw))
+						await db.updateDataNsfw(JSON.stringify(_leveling))
 						reply('Sukes mengaktifkan mode nsfw di group ini ✔️')
 					} else if (Number(args[0]) === 0) {
 						nsfw.splice(from, 1)
-						fs.writeFileSync('./nsfw.json', JSON.stringify(nsfw))
+						await db.updateDataNsfw(JSON.stringify(_leveling))
 						reply('Sukes menonaktifkan mode nsfw di group ini ✔️')
 					} else {
 						reply(ind.satukos())

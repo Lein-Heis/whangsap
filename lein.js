@@ -174,6 +174,16 @@ const getDataSession = async () => new Promise((resolve, reject) => {
     })
 })
 
+const getDataNsfw = async () => new Promise((resolve, reject) => {
+    db.any(`SELECT nsfw FROM public.leinbot WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(data[0].afk)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
 // update data
 const updateDataLeveling = async (databaru) => new Promise((resolve, reject) => {
     db.any(`UPDATE public.leinbot SET leveling = '${databaru}' WHERE id_data = 1;`)
@@ -335,6 +345,16 @@ const updateDataSession = async (databaru) => new Promise((resolve, reject) => {
     })
 })
 
+const updateDataNsfw = async (databaru) => new Promise((resolve, reject) => {
+    db.any(`UPDATE public.leinbot SET nsfw = '${databaru}' WHERE id_data = 1;`)
+    .then((data) => {
+        resolve(true)
+    })
+    .catch((error) => {
+        reject(error)
+    })
+})
+
 module.exports = {
     getDataLeveling,
     getDataAntilink,
@@ -352,6 +372,7 @@ module.exports = {
     getDataBadword,
     getDataAfk,
     getDataSession,
+    getDataNsfw,
     updateDataLeveling,
     updateDataAntilink,
     updateDataLevels,
@@ -368,4 +389,5 @@ module.exports = {
     updateDataBadword,
     updateDataAfk,
     updateDataSession,
+    updateDataNsfw,
 }
